@@ -1,0 +1,33 @@
+<!-- Loader  -->
+<div id="loading">
+</div>
+<header class="trabajos-head">
+  <h1 class="titulo center-align wow fadeIn">
+    Mis trabajos.
+  </h1>
+  <h2 class="center-align">
+    <b>Estos son algunos de mis ultimos trabajos.</b>
+  </h2>
+</header>
+<main class="trabajos">
+  <div class="container gallery-container">
+    <div class="tz-gallery">
+      <div class="row">
+        <div *ngIf="(items | async)[0] < 0">
+          <img src="assets/img/load.gif" alt="" style="position: absolute;top:20%; left:30%;">
+        </div>
+        <div *ngIf="(items | async).length > 1">
+          <div class="col s6 m4" *ngFor="let item of items | async">
+            <a class="lightbox" [href]="item.url" target="_blank">
+              <img [src]="item.img" [alt]="item.name" [title]="item.name">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!--<div *ngIf="(items | async)[0] < 0"> no hay {{ (items | async)[0] </div>
+<div *ngIf="(items | async).length > 1"> Si hay {{ (items | async).length }} </div>-->
